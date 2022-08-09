@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import axiosInstance from './myaxios'
+import { Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import UserProfile from './Layouts/UserProfile';
+import UserDetail from './Screens/UserDetail';
+import UserForm from './Screens/UserForm';
+import UsersTable from './Screens/UsersTable';
+import {Route, Routes, Outlet} from 'react-router-dom';
+import Users from './Screens/UserDetail';
+import Header from './Screens/Header';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+  return (  // retorna a  pagina ou porção que serah mostrada
+  <div>
+    <Header />
+    <Container>
+    <Routes>
+      <Route path='/user-details' element={<UserDetail />} />
+      <Route path='/user-form' element={<UserForm />}/>
+      <Route path='/users' element={<UsersTable />} />
+
+    </Routes>
+    <Outlet />
+  </Container>
+  </div>
+  )
+  
 }
 
-export default App;
+export default App
