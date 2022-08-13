@@ -18,7 +18,9 @@ const App = () => {
     <Routes>
       <Route path='/user-details' element={<UserDetail />} />
       <Route path='/user-form' element={<UserForm />}/>
+      <Route path='/users/:id' element={<UserForm />} />
       <Route path='/users' element={<UsersTable />} />
+      
 
     </Routes>
     <Outlet />
