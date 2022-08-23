@@ -9,8 +9,12 @@ import UsersTable from './Screens/UsersTable';
 import {Route, Routes, Outlet} from 'react-router-dom';
 import Users from './Screens/UserDetail';
 import Header from './Screens/Header';
+import Products from './Screens/Products';
+import Checkout from './Screens/Checkout';
+
 
 const App = () => {
+
   return (  // retorna a  pagina ou porção que serah mostrada
   <div>
     <Header />
@@ -20,10 +24,13 @@ const App = () => {
       <Route path='/user-form' element={<UserForm />}/>
       <Route path='/users/:id' element={<UserForm />} />
       <Route path='/users' element={<UsersTable />} />
-      
+      <Route path='/products' element={<Products />} />
+      <Route path='/checkout' element={<Checkout />} />
 
     </Routes>
+   
     <Outlet />
+   
   </Container>
   </div>
   )

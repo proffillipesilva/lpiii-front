@@ -20,6 +20,8 @@ return (
                 <i class="fa fa-users" aria-hidden="true"></i> Users </Link>  </Nav.Link>
             <Nav.Link href="#"><Link to={'user-details'} style={{color: "white", textDecoration: "none"}} > User Details </Link>  </Nav.Link>
             <Nav.Link href="#"><Link to={'user-form'} style={{color: "white", textDecoration: "none"}}> User Form </Link>  </Nav.Link>
+            <Nav.Link href="#"><Link to={'products'} style={{color: "white", textDecoration: "none"}}> Products </Link>  </Nav.Link>
+            <Nav.Link href="#"><Link to={'checkout'} style={{color: "white", textDecoration: "none"}}> Checkout </Link>  </Nav.Link>
             <Button variant="primary" onClick={handleShow} style={{position: "absolute", right: "50px"}}>
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </Button>

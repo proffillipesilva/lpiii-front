@@ -3,8 +3,12 @@ import UserProfile from '../Layouts/UserProfile'
 import { Button } from 'react-bootstrap';
 import axiosInstance from '../myaxios';
 import notDefinedUser from '../images/userNotDefined.jpg';
+import { useSelector } from 'react-redux';
 
 const Users = () => {
+
+   const count = useSelector(state => state.count); 
+
   const [user, setUser] = useState(null)
 
   const getUserById = async (id) => {
@@ -15,6 +19,8 @@ const Users = () => {
 
   return (
     <div>
+       {`THE COUNTER IS ${count}`}
+       <br />
          <Button variant="primary" onClick={() => getUserById("4")}>
             Load User
          </Button>

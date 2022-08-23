@@ -3,11 +3,15 @@ import { Table, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import MyModal from '../Layouts/MyModal';
 import axiosInstance from '../myaxios';
+import { useDispatch } from 'react-redux';
 
 const UsersTable = () => {
   const [users, setusers] = useState(null)
   const [showModal, setshowModal] = useState(false)
-  const [user, setuser] = useState(null)
+  const [user, setuser] = useState(null);
+
+  const dispatch = useDispatch();
+
 
   const loadUsers = async () => {
     try{
@@ -84,6 +88,9 @@ const UsersTable = () => {
             </tbody>
         </Table>
         <hr />
+        <Button variant="primary" onClick={() => dispatch({type: "COUNT_UP"})}>
+          INCREMENT COUNTER
+        </Button>
     </div>
   )
 }
