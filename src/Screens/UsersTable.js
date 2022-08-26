@@ -81,7 +81,7 @@ const UsersTable = () => {
                         <td>{user.name}</td>
                         <td>{user.email}</td>
                         <td>{user.phoneNumber}</td>
-                        <td><Link to={`/users/${user.id}`} ><span><i class="fa fa-pencil" aria-hidden="true"></i></span></Link></td>
+                        <td><Link to={`/user-form/${user.id}`} ><span><i class="fa fa-pencil" aria-hidden="true"></i></span></Link></td>
                         <td ><span onClick={() => openModal(user)}><i class="fa fa-eraser" aria-hidden="true"></i></span></td>
                     </tr>
                 )) : <tr><td colSpan={4} >Sem usuarios no Banco</td></tr> }

@@ -1,12 +1,13 @@
 import React from 'react'
 import { Card, Row, Col, Button } from 'react-bootstrap';
+import { BACKEND_URL } from '../constants';
 
 
 const ProductTemplate = (props) => {
   return (
     <div>
         <Card style={{ width: '18rem', height: '36rem', margin: '1rem' }}>
-            <Card.Img variant="top" src={`http://localhost:38000/images/${props.product.productImage}.jpg`} />
+            <Card.Img variant="top" src={`${BACKEND_URL}/images/${props.product.productImage}.jpg`} />
             
             <Card.Body>
                 <Card.Title>{props.product.price}</Card.Title>

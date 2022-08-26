@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Form, Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import { BACKEND_URL } from '../constants';
 import axiosInstance from '../myaxios';
 
 const UserForm = (props) => {
@@ -17,8 +18,7 @@ const UserForm = (props) => {
 
     const submitForm = async (e) => {
         e.preventDefault();
-        //console.log(form);
-        if (pathParam == null) {
+        if (!pathParam.id) {
             const res = await axiosInstance.post("/users", form);
             const data = await res.data;
             alert(JSON.stringify(data))
@@ -60,7 +60,7 @@ const UserForm = (props) => {
 
 
     useEffect(() => {
-        if (pathParam != null)
+        if (pathParam.id != null)
             loadUser(pathParam.id)
     }, [])
 
@@ -126,7 +126,7 @@ const UserForm = (props) => {
                     <Form>
                         <div>
                             <img src={fileDataURL == null ? (user != null && user.profileImage != null ?
-                                `http://localhost:38000/images/${user.profileImage}.jpg` : '') : fileDataURL} width={300} />
+                                `${BACKEND_URL}/images/${user.profileImage}.jpg` : '') : fileDataURL} width={300} />
                         </div>
                         <Form.Control onChange={changeHandler} type="file" />
                         <br />

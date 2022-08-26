@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Card, Button } from 'react-bootstrap';
 import axiosInstance from '../myaxios';
+import { BACKEND_URL } from '../constants';
 
 const Checkout = () => {
 
@@ -18,7 +19,7 @@ const Checkout = () => {
             <div>
                 {selectedProducts != null ? selectedProducts.map((p, i) => 
                 <Card style={{ width: '10rem' }}>
-                    <Card.Img variant="left"  style={{width: "100px", height: "100px"}} src={`http://localhost:38000/images/thumb_${p.productImage}.jpg`}/>
+                    <Card.Img variant="left"  style={{width: "100px", height: "100px"}} src={`${BACKEND_URL}/images/thumb_${p.productImage}.jpg`}/>
                     
                     <Card.Body>
                         <Card.Title>{p.name}</Card.Title>
