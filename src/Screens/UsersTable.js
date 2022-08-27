@@ -1,11 +1,28 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, CSSProperties} from 'react';
 import { Table, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import MyModal from '../Layouts/MyModal';
 import axiosInstance from '../myaxios';
 import { useDispatch } from 'react-redux';
+import ClipLoader from "react-spinners/ClipLoader";
+import ScaleLoader from 'react-spinners/ScaleLoader';
+import { MoonLoader, RotateLoader } from 'react-spinners';
+
+const override = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "red",
+}; 
 
 const UsersTable = () => {
+
+
+
+  
+  
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#ffffff");
+
   const [users, setusers] = useState(null)
   const [showModal, setshowModal] = useState(false)
   const [user, setuser] = useState(null);
@@ -18,6 +35,8 @@ const UsersTable = () => {
         const res = await axiosInstance.get('/users');
         const data = await res.data;
         setusers(data)
+        await setTimeout(() =>  setLoading(false), 2000);
+       
     } catch (ex) {
 
     }
@@ -75,7 +94,9 @@ const UsersTable = () => {
                 </tr>
             </thead>
             <tbody>
-                {users ? users.map((user,idx) => (
+               {loading ?  <ClipLoader loading={loading}/> :
+    
+                users ? users.map((user,idx) => (
                     <tr>
                         <td>{user.id}</td>
                         <td>{user.name}</td>
