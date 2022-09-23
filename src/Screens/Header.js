@@ -14,7 +14,7 @@ return (
   <>
 
     <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#home">&nbsp; &nbsp;  <i class="fa fa-cart-plus" aria-hidden="true"></i> My Market </Navbar.Brand>
+        <Navbar.Brand href="#">&nbsp; &nbsp;  <i class="fa fa-cart-plus" aria-hidden="true"></i> My Market </Navbar.Brand>
         <Nav className="mr-auto">
             <Nav.Link href="#"><Link to={'users'} style={{color: "white", textDecoration: "none"}} >
                 <i class="fa fa-users" aria-hidden="true"></i> Users </Link>  </Nav.Link>
