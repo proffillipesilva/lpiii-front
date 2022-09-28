@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import axiosInstance from './myaxios'
 import { Button } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
@@ -12,11 +12,18 @@ import Header from './Screens/Header';
 import Products from './Screens/Products';
 import Checkout from './Screens/Checkout';
 
+import { requestForToken } from './firebase';
+
 import { useSelector } from 'react-redux'
 import Auth from './Screens/Auth';
 
 
 const App = () => {
+
+  const [token, setToken] = useState(null);
+  const [isTokenFound, setTokenFound] = useState(false);
+
+  requestForToken(setTokenFound, setToken)
 
   const loggedIn = useSelector(state => state.loggedIn);
 
