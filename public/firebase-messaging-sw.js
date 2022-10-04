@@ -22,12 +22,13 @@ firebase.initializeApp({
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDHe1JcUlSPxfed-PUrzrNpYU_gHjdunYA",
-  authDomain: "test-notifications-f49e8.firebaseapp.com",
-  projectId: "test-notifications-f49e8",
-  storageBucket: "test-notifications-f49e8.appspot.com",
-  messagingSenderId: "876201080502",
-  appId: "1:876201080502:web:2db57256d7bf3e44a59817"
+  apiKey: "AIzaSyDvRwjQ3YDr46M3ErwNL1GqDEuibEm8ycs",
+    authDomain: "tcc-fiec-3mod.firebaseapp.com",
+    projectId: "tcc-fiec-3mod",
+    storageBucket: "tcc-fiec-3mod.appspot.com",
+    messagingSenderId: "609225504796",
+    appId: "1:609225504796:web:24bc1d46582826a7a347d9",
+    measurementId: "G-80M0C3ZNBT"
   };
 firebase.initializeApp(firebaseConfig);
 

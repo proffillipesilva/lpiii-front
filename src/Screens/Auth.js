@@ -2,21 +2,22 @@ import React from 'react'
 import { Form, Button, Container } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import axiosInstance from '../myaxios';
-import { GoogleLogin } from 'react-google-login';
+//import { GoogleLogin } from 'react-google-login';
+import { GoogleLogin } from '@react-oauth/google';
 
 
-
-
-const Auth = () => {
+const Auth = (props) => {
   const [form, setform] = React.useState({email: "", password: ""})
   const dispatch = useDispatch();
 
   const responseGoogle = async (response) => {
-    const tokenId = response.tokenId;
+    console.log(response);
+    const tokenId = response.credential;
     const res = await axiosInstance.post("/auth/loginWithGoogle", { tokenId })
     const data = await res.data;
     const token = data.token;
     localStorage.setItem("token", token);
+    const res2 = await axiosInstance.post("/messages/register", { fcmToken: props.token })
     dispatch({type: "LOGIN"});
   }
   
@@ -51,12 +52,10 @@ const Auth = () => {
                 Submit
             </Button>
             <GoogleLogin
-    clientId="277380091468-1pe2je91eas7almtof0bf0bfhmehbvgi.apps.googleusercontent.com"
-    buttonText="Login With Google"
-    onSuccess={responseGoogle}
-    onFailure={responseGoogle}
-    cookiePolicy={'single_host_origin'}
-  />
+    
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+          />
         </Form>
         </Container>
 
